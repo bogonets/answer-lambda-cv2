@@ -1,4 +1,4 @@
-# answer-lambda-numpy
+# answer-lambda-cv2
 
-Answer Lambda numpy
+Answer Lambda cv2
 
