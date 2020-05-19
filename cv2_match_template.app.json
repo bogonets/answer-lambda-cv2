@@ -1,0 +1,53 @@
+{
+    "info": {
+        "name": "cv2_match_template",
+        "version": "1.0.0",
+        "category": "cv2",
+        "keywords": ["cv2"],
+        "homepage": "https://answer.bogonets.com/",
+        "bugs": "https://answer.bogonets.com/",
+        "license": "Bogonet License",
+        "author": "wooruang",
+        "dependencies": [
+            {"type": "pip", "src": "numpy"},
+            {"type": "pip", "src": "opencv-python"}
+        ],
+        "engines": ">=1.0.2",
+        "environment": {},
+        "titles": {
+            "en": "cv2.matchTemplate",
+            "ko": "cv2.matchTemplate"
+        },
+        "descriptions": {
+            "en": "Template matching is a technique for finding areas of an image that match (are similar) to a template image (patch).",
+            "ko": "템플릿 매칭은 한 이미지의 영역에서 템플릿 이미지(patch)와 유사한 이미지를 찾는 기술이다."
+        },
+        "documentation_mime": "text",
+        "documentations": {},
+        "meta": {}
+    },
+    "controls": {
+        "input": ["image", "template"],
+        "output": "result"
+    },
+    "props": [
+        {
+            "rule": "read_and_write",
+            "name": "method",
+            "default_value": "TM_CCOEFF_NORMED",
+            "type": "str",
+            "required": true,
+            "valid": {
+                "list": "TM_CCOEFF;TM_CCOEFF_NORMED;TM_CCORR;TM_CCORR_NORMED;TM_SQDIFF;TM_SQDIFF_NORMED;"
+            },
+            "title": {
+                "en": "Matching Method",
+                "ko": "매칭 방법"
+            },
+            "help": {
+                "en": "Parameter specifying the comparison method.",
+                "ko": "특정 비교 방법"
+            }
+        }
+    ]
+}
