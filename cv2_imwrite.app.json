@@ -1,0 +1,52 @@
+{
+    "info": {
+        "name": "cv2_imwrite",
+        "version": "1.0.0",
+        "category": "cv2",
+        "keywords": ["cv2"],
+        "homepage": "https://answer.bogonets.com/",
+        "bugs": "https://answer.bogonets.com/",
+        "license": "Bogonet License",
+        "author": "zer0",
+        "dependencies": [
+            {"type": "pip", "src": "numpy"},
+            {"type": "pip", "src": "opencv-python"}
+        ],
+        "engines": ">=1.0.2",
+        "environment": {},
+        "titles": {
+            "en": "cv2.imwrite",
+            "ko": "cv2.imwrite"
+        },
+        "descriptions": {
+            "en": "Saves an image to a specified file.",
+            "ko": "이미지를 파일로 저장한다."
+        },
+        "documentation_mime": "text",
+        "documentations": {},
+        "meta": {}
+    },
+    "controls": {
+        "input": "array"
+    },
+    "props": [
+        {
+            "rule": "read_and_write",
+            "name": "filename",
+            "default_value": "",
+            "type": "str",
+            "required": true,
+            "valid": {
+                "dyhint": "filename_list"
+            },
+            "title": {
+                "en": "Filename",
+                "ko": "Filename"
+            },
+            "help": {
+                "en": "Name of the file.",
+                "ko": "저장할 파일 이름."
+            }
+        }
+    ]
+}

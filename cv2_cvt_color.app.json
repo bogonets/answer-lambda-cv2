@@ -1,0 +1,53 @@
+{
+    "info": {
+        "name": "cv2_cvt_color",
+        "version": "1.0.0",
+        "category": "cv2",
+        "keywords": ["cv2"],
+        "homepage": "https://answer.bogonets.com/",
+        "bugs": "https://answer.bogonets.com/",
+        "license": "Bogonet License",
+        "author": "zer0",
+        "dependencies": [
+            {"type": "pip", "src": "numpy"},
+            {"type": "pip", "src": "opencv-python"}
+        ],
+        "engines": ">=1.0.2",
+        "environment": {},
+        "titles": {
+            "en": "cv2.cvtColor",
+            "ko": "cv2.cvtColor"
+        },
+        "descriptions": {
+            "en": "Converts an image from one color space to another.",
+            "ko": "한 색상 공간에서 다른 색상 공간으로 이미지를 변환한다."
+        },
+        "documentation_mime": "text",
+        "documentations": {},
+        "meta": {}
+    },
+    "controls": {
+        "input": "array",
+        "output": "result"
+    },
+    "props": [
+        {
+            "rule": "read_and_write",
+            "name": "flag",
+            "default_value": "BGR2RGB",
+            "type": "str",
+            "required": true,
+            "valid": {
+                "list": "BGR2RGB;RGB2BGR;BGR2GRAY;GRAY2BGR;RGB2GRAY;GRAY2RGB;BGR2HSV;HSV2BGR;RGB2HSV;HSV2RGB"
+            },
+            "title": {
+                "en": "Flag",
+                "ko": "Flag"
+            },
+            "help": {
+                "en": "Convert flag.",
+                "ko": "변환 플래그."
+            }
+        }
+    ]
+}

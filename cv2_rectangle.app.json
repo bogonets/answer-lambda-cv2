@@ -1,0 +1,101 @@
+{
+    "info": {
+        "name": "cv2_rectangle",
+        "version": "1.0.0",
+        "category": "cv2",
+        "keywords": ["cv2"],
+        "homepage": "https://answer.bogonets.com/",
+        "bugs": "https://answer.bogonets.com/",
+        "license": "Bogonet License",
+        "author": "zer0",
+        "dependencies": [
+            {"type": "pip", "src": "numpy"},
+            {"type": "pip", "src": "opencv-python"}
+        ],
+        "engines": ">=1.0.2",
+        "environment": {},
+        "titles": {
+            "en": "cv2.rectangle",
+            "ko": "cv2.rectangle"
+        },
+        "descriptions": {
+            "en": "Draws a simple, thick, or filled up-right rectangle.",
+            "ko": "사각형을 그린다."
+        },
+        "documentation_mime": "text",
+        "documentations": {},
+        "meta": {}
+    },
+    "controls": {
+        "input": ["source", "rectangles"],
+        "output": "result"
+    },
+    "props": [
+        {
+            "rule": "read_and_write",
+            "name": "color",
+            "default_value": "0,0,0",
+            "type": "color",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "Rectangle color",
+                "ko": "Rectangle color"
+            },
+            "help": {
+                "en": "Rectangle color or brightness (grayscale image).",
+                "ko": "사각형의 색상."
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "thickness",
+            "default_value": "1",
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "Line thickness",
+                "ko": "Line thickness"
+            },
+            "help": {
+                "en": "Thickness of lines that make up the rectangle.",
+                "ko": "사각형을 구성하는 선분의 두께. 사각형의 내부를 채우고싶다면 음수를 전달하면 된다."
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "line_type",
+            "default_value": "8",
+            "type": "str",
+            "required": true,
+            "valid": {
+                "list": "4;8;AA"
+            },
+            "title": {
+                "en": "Line Type",
+                "ko": "Line Type"
+            },
+            "help": {
+                "en": "Type of the line.",
+                "ko": "선분의 종류."
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "shift",
+            "default_value": "0",
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "Shift",
+                "ko": "Shift"
+            },
+            "help": {
+                "en": "Number of fractional bits in the point coordinates.",
+                "ko": "점 좌표의 소수 비트 수."
+            }
+        }
+    ]
+}

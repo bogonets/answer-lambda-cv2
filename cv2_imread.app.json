@@ -1,0 +1,102 @@
+{
+    "info": {
+        "name": "cv2_imread",
+        "version": "1.0.0",
+        "category": "cv2",
+        "keywords": ["cv2"],
+        "homepage": "https://answer.bogonets.com/",
+        "bugs": "https://answer.bogonets.com/",
+        "license": "Bogonet License",
+        "author": "zer0",
+        "dependencies": [
+            {"type": "pip", "src": "numpy"},
+            {"type": "pip", "src": "opencv-python"}
+        ],
+        "engines": ">=1.0.2",
+        "environment": {},
+        "titles": {
+            "en": "cv2.imread",
+            "ko": "cv2.imread"
+        },
+        "descriptions": {
+            "en": "Loads an image from a file.",
+            "ko": "이미지 파일을 읽는다."
+        },
+        "documentation_mime": "text",
+        "documentations": {},
+        "meta": {}
+    },
+    "controls": {
+        "output": "result"
+    },
+    "props": [
+        {
+            "rule": "read_and_write",
+            "name": "filename",
+            "default_value": "",
+            "type": "str",
+            "required": true,
+            "valid": {
+                "dyhint": "filename_list"
+            },
+            "title": {
+                "en": "Filename",
+                "ko": "Filename"
+            },
+            "help": {
+                "en": "Name of file to be loaded.",
+                "ko": "읽어올 파일 이름."
+            }
+        },
+        {
+            "rule": "read_only",
+            "name": "filename_list",
+            "default_value": "",
+            "type": "csv",
+            "required": false,
+            "valid": {},
+            "title": {
+                "en": "Filename List",
+                "ko": "Filename List"
+            },
+            "help": {
+                "en": "List of filenames that can be read.",
+                "ko": "읽어올 수 있는 파일 이름 목록."
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "flag",
+            "default_value": "color",
+            "type": "str",
+            "required": true,
+            "valid": {
+                "list": "color;grayscale;unchanged"
+            },
+            "title": {
+                "en": "Flag",
+                "ko": "Flag"
+            },
+            "help": {
+                "en": "How to read images.",
+                "ko": "이미지를 읽는 방법."
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "cache",
+            "default_value": "true",
+            "type": "bool",
+            "required": false,
+            "valid": {},
+            "title": {
+                "en": "Enable cache",
+                "ko": "Enable cache"
+            },
+            "help": {
+                "en": "Cache in memory.",
+                "ko": "메모리에 저장한다."
+            }
+        }
+    ]
+}
