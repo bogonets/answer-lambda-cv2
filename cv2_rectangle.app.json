@@ -96,6 +96,24 @@
                 "en": "Number of fractional bits in the point coordinates.",
                 "ko": "점 좌표의 소수 비트 수."
             }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "coordinates",
+            "default_value": "ratio",
+            "type": "str",
+            "required": true,
+            "valid": {
+                "list": "ratio;absolute"
+            },
+            "title": {
+                "en": "Coordinates",
+                "ko": "좌표계"
+            },
+            "help": {
+                "en": "Coordinate system to be applied. (ratio: 0.0 ~ 1.0, absolute: pixel)",
+                "ko": "적용 할 좌표계. (ratio: 0.0 ~ 1.0, absolute: pixel)"
+            }
         }
     ]
 }

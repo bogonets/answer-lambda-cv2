@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from enum import Enum
 import numpy as np
 import cv2
 
@@ -10,10 +11,23 @@ LINE_NAME_TO_NUM = {
 }
 LINE_NUM_TO_NAME = {v: k for k, v in LINE_NAME_TO_NUM.items()}
 
+
+class Coordinates(Enum):
+    RATIO=1
+    ABSOLUTE=2
+
+
+COORDINATES_NAME_TO_ENUM = {
+    'ratio': Coordinates.RATIO,
+    'absolute': Coordinates.ABSOLUTE
+}
+COORDINATES_ENUM_TO_NAME = {v: k for k, v in COORDINATES_NAME_TO_ENUM.items()}
+
 color = (0, 0, 0)
 thickness = 0
 line_type = cv2.LINE_8
 shift = 0
+coordinates = Coordinates.RATIO
 
 
 def on_set(key, val):
@@ -30,6 +44,9 @@ def on_set(key, val):
     elif key == 'shift':
         global shift
         shift = int(val)
+    elif key == 'coordinates':
+        global coordinates
+        coordinates = COORDINATES_NAME_TO_ENUM[val]
 
 
 def on_get(key):
@@ -41,6 +58,8 @@ def on_get(key):
         return LINE_NUM_TO_NAME[line_type]
     elif key == 'shift':
         return str(shift)
+    elif key == 'coordinates':
+        return COORDINATES_ENUM_TO_NAME[coordinates]
 
 
 def convert_drawable_rect(r, w, h, is_absolute_coordinates=False):
@@ -50,11 +69,9 @@ def convert_drawable_rect(r, w, h, is_absolute_coordinates=False):
         return int(r[0]*w), int(r[1]*h), int(r[2]*w), int(r[3]*h)
 
 
-def convert_drawable_rects(rectangles: np.ndarray, width, height):
-    is_absolute_coordinates = rectangles.dtype not in [np.float32, np.float64]
-    rectangles_rank = len(rectangles.shape)
-
+def convert_drawable_rects(rectangles: np.ndarray, width, height, is_absolute_coordinates=False):
     result = list()
+    rectangles_rank = len(rectangles.shape)
     if rectangles_rank == 1:
         assert rectangles.shape[0] >= 4
         result.append(convert_drawable_rect(rectangles[0:4], width, height, is_absolute_coordinates))
@@ -73,7 +90,7 @@ def on_run(source: np.ndarray, rectangles: np.ndarray):
     assert source.shape[1] >= 1
     assert source.shape[2] >= 1
     result = source.copy()
-    for rect in convert_drawable_rects(rectangles, source.shape[1], source.shape[0]):
+    for rect in convert_drawable_rects(rectangles, source.shape[1], source.shape[0], coordinates is Coordinates.ABSOLUTE):
         cv2.rectangle(result,
                       (rect[0], rect[1]),
                       (rect[2], rect[3]),
