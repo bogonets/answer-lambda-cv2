@@ -13,7 +13,10 @@
             {"type": "pip", "src": "opencv-python"}
         ],
         "engines": ">=1.0.2",
-        "environment": {},
+        "environment": {
+            "type": "pyenv",
+            "name": "cv2"
+        },
         "titles": {
             "en": "cv2.imread",
             "ko": "cv2.imread"
