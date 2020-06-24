@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import sys
 from enum import Enum
 import numpy as np
 import cv2
@@ -89,6 +90,13 @@ def on_run(source: np.ndarray, rectangles: np.ndarray):
     assert source.shape[0] >= 1
     assert source.shape[1] >= 1
     assert source.shape[2] >= 1
+
+    # sys.stdout.write(f"[cv2_rectangle.on_run] rectangles {rectangles} {type(rectangles)}\n")
+    # sys.stdout.write(f"[cv2_rectangle.on_run] rectangles.size {rectangles.size}\n")
+    # sys.stdout.flush()
+    if rectangles.size < 4:
+        return {'result': source}
+
     result = source.copy()
     for rect in convert_drawable_rects(rectangles, source.shape[1], source.shape[0], coordinates is Coordinates.ABSOLUTE):
         cv2.rectangle(result,

@@ -37,7 +37,7 @@
         {
             "rule": "read_and_write",
             "name": "color",
-            "default_value": "0,0,0",
+            "default_value": "#000000",
             "type": "color",
             "required": true,
             "valid": {},
