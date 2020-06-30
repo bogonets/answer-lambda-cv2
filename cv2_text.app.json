@@ -1,0 +1,112 @@
+{
+    "info": {
+        "name": "cv2_text",
+        "version": "1.0.0",
+        "category": "cv2",
+        "keywords": ["cv2"],
+        "homepage": "https://answer.bogonets.com/",
+        "bugs": "https://answer.bogonets.com/",
+        "license": "Bogonet License",
+        "author": "zer0",
+        "dependencies": [
+            {"type": "pip", "src": "numpy"},
+            {"type": "pip", "src": "opencv-python"}
+        ],
+        "engines": ">=1.0.2",
+        "environment": {
+            "type": "pyenv",
+            "name": "cv2"
+        },
+        "titles": {
+            "en": "cv2.text",
+            "ko": "cv2.text"
+        },
+        "descriptions": {
+            "en": "Write a text on an image.",
+            "ko": "이미지에 텍스트를 입력한다."
+        },
+        "documentation_mime": "text",
+        "documentations": {},
+        "meta": {}
+    },
+    "controls": {
+        "input": ["source", "text"],
+        "output": "result"
+    },
+    "props": [
+        {
+            "rule": "read_and_write",
+            "name": "x",
+            "default_value": "FONT_HERSHEY_PLAIN",
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "x",
+                "ko": "x"
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "y",
+            "default_value": 0,
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "y",
+                "ko": "y"
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "font_type",
+            "default_value": "HERSHEY_PLAIN",
+            "type": "str",
+            "required": true,
+            "valid": {
+                "list": "HERSHEY_PLAIN;HERSHEY_SMALL;HERSHEY_SIMPLEX;ITALIC;HERSHEY_DUPLEX; HERSHEY_COMPLEX; HERSHEY_TRIPLEX; HERSHEY_SCRIPT_COMPLEX; HERSHEY_SCRIPT_SIMPLX"
+            },
+            "title": {
+                "en": "Font Type",
+                "ko": "Font Type"
+            },
+            "help": {
+                "en": "Type of the font.",
+                "ko": "폰트의 종류."
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "font_scale",
+            "default_value": "2",
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "Font scale",
+                "ko": "Font scale"
+            },
+            "help": {
+                "en": "Size of the font",
+                "ko": "폰트의 크기"
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "color",
+            "default_value": "#000000",
+            "type": "color",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "Text color",
+                "ko": "Text color"
+            },
+            "help": {
+                "en": "Text color or brightness (grayscale image).",
+                "ko": "텍스트의 색상."
+            }
+        }
+    ]
+}
