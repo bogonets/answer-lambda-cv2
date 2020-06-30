@@ -21,6 +21,7 @@ point_y = 0
 font_type = cv2.FONT_HERSHEY_PLAIN
 font_scale = 0
 color = (0, 0, 0)
+font_thickness = 1
 
 
 def on_set(key, val):
@@ -40,6 +41,10 @@ def on_set(key, val):
         global color
         h = str(val).lstrip('#')
         color = tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
+    elif key == 'font_thickness':
+        global font_thickness
+        font_thickness = int(val)
+
 
 
 def on_get(key):
@@ -53,6 +58,9 @@ def on_get(key):
         return str(font_scale)
     elif key == 'color':
         return '#' + rgb_to_hex(color)
+    elif key == 'font_thickness':
+        return str(font_thickness)
+
 
 
 # def rgb_to_hex(i):
@@ -71,10 +79,15 @@ def on_run(source, text):
     assert source.shape[2] >= 1
     result = source.copy()
 
-    cv2.putText(result, source,
-                text, point_x,
-                point_y, font_type,
-                font_scale, color)
+    text_str = "".join([chr(item) for item in text])
+
+    result = cv2.putText(result,
+                         text_str,
+                         (point_x, point_y),
+                         font_type,
+                         font_scale,
+                         color,
+                         font_thickness)
 
     return {'result': result}
 

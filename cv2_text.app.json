@@ -107,6 +107,22 @@
                 "en": "Text color or brightness (grayscale image).",
                 "ko": "텍스트의 색상."
             }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "thickness",
+            "default_value": "1",
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "Font thickness",
+                "ko": "Font thickness"
+            },
+            "help": {
+                "en": "Font thickness.",
+                "ko": "폰트의 두께."
+            }
         }
     ]
 }
