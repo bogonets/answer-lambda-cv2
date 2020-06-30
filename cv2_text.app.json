@@ -37,7 +37,7 @@
         {
             "rule": "read_and_write",
             "name": "x",
-            "default_value": "FONT_HERSHEY_PLAIN",
+            "default_value": 0,
             "type": "int",
             "required": true,
             "valid": {},
@@ -110,7 +110,7 @@
         },
         {
             "rule": "read_and_write",
-            "name": "thickness",
+            "name": "font_thickness",
             "default_value": "1",
             "type": "int",
             "required": true,
