@@ -22,6 +22,7 @@ API_NUM_TO_NAME = {v: k for k, v in API_NAME_TO_NUM.items()}
 
 DEFAULT_MAX_QUEUE_SIZE = 4
 DEFAULT_EXIT_TIMEOUT_SECONDS = 4.0
+LOGGING_PREFIX = '[cv2.videocapture.mp] '
 
 filename = ''
 api_preference = API_NAME_TO_NUM['default']
@@ -32,12 +33,12 @@ exit_timeout_seconds = DEFAULT_EXIT_TIMEOUT_SECONDS
 
 
 def print_out(message):
-    sys.stdout.write(message)
+    sys.stdout.write(LOGGING_PREFIX + message)
     sys.stdout.flush()
 
 
 def print_error(message):
-    sys.stderr.write(message)
+    sys.stderr.write(LOGGING_PREFIX + message)
     sys.stderr.flush()
 
 
@@ -97,7 +98,7 @@ def run_process():
                                 args=(server_queue, server_exit, filename, api_preference, sleep, reopen,))
     server_process.start()
 
-    print_out(f'cv2.videocapture_mp process PID is {server_process.pid}.')
+    print_out(f'run_process() New process PID is {server_process.pid}')
     return server_process.is_alive()
 
 
@@ -109,7 +110,7 @@ def close_process():
     timeout = exit_timeout_seconds if exit_timeout_seconds > 0.0 else DEFAULT_EXIT_TIMEOUT_SECONDS
 
     global server_process
-    print_out(f'cv2.videocapture_mp(pid={server_process.pid}) Join(timeout={timeout}s) ...')
+    print_out(f'close_process(pid={server_process.pid}) Join(timeout={timeout}s) ...')
     server_process.join(timeout=timeout)
 
     global server_queue
@@ -118,11 +119,11 @@ def close_process():
     server_queue = None
 
     if server_process.is_alive():
-        print_error(f'cv2.videocapture_mp(pid={server_process.pid}) Kill ...')
+        print_error(f'close_process(pid={server_process.pid}) Kill ...')
         server_process.kill()
 
     # A negative value -N indicates that the child was terminated by signal N.
-    print_out(f'cv2.videocapture_mp(pid={server_process.pid}) Exit Code: {server_process.exitcode}')
+    print_out(f'close_process(pid={server_process.pid}) Exit Code: {server_process.exitcode}')
 
     server_process.close()
     server_process = None
