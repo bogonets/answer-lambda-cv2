@@ -1,6 +1,6 @@
 {
     "info": {
-        "name": "cv2_text",
+        "name": "cv2_puttext",
         "version": "1.0.0",
         "category": "cv2",
         "keywords": ["cv2"],
@@ -18,8 +18,8 @@
             "name": "cv2"
         },
         "titles": {
-            "en": "cv2.text",
-            "ko": "cv2.text"
+            "en": "cv2.puttext",
+            "ko": "cv2.puttext"
         },
         "descriptions": {
             "en": "Write a text on an image.",

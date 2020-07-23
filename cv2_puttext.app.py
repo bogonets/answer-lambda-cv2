@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import numpy as np
 import cv2
 
 FONT_NAME_TO_NUM = {
@@ -46,7 +45,6 @@ def on_set(key, val):
         font_thickness = int(val)
 
 
-
 def on_get(key):
     if key == 'x':
         return str(point_x)
@@ -61,11 +59,6 @@ def on_get(key):
     elif key == 'font_thickness':
         return str(font_thickness)
 
-
-
-# def rgb_to_hex(i):
-#     base16 = "%02X" % int(i)
-#     return base16
 
 def rgb_to_hex(r, g, b):
     r, g, b = int(r), int(g), int(b)
