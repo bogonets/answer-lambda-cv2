@@ -1,0 +1,201 @@
+{
+    "info": {
+        "name": "cv2_orb_detect",
+        "version": "1.0.0",
+        "category": "cv2",
+        "keywords": ["cv2", "orb", "detectAndCompute"],
+        "homepage": "https://answer.bogonets.com/",
+        "bugs": "https://answer.bogonets.com/",
+        "license": "Bogonet License",
+        "author": "zer0",
+        "dependencies": [
+            {"type": "pip", "src": "numpy"},
+            {"type": "pip", "src": "opencv-python"}
+        ],
+        "engines": ">=1.0.2",
+        "environment": {
+            "type": "pyenv",
+            "name": "cv2"
+        },
+        "titles": {
+            "en": "cv2.orb.detectAndCompute",
+            "ko": "cv2.orb.detectAndCompute"
+        },
+        "descriptions": {
+            "en": "Detects keypoints and computes the descriptors.",
+            "ko": "키포인트를 감지하고 설명자를 계산한다."
+        },
+        "documentation_mime": "text",
+        "documentations": {},
+        "meta": {}
+    },
+    "controls": {
+        "input": "image",
+        "output": ["keypoints", "descriptors"]
+    },
+    "props": [
+        {
+            "rule": "initialize_only",
+            "name": "nfeatures",
+            "default_value": 500,
+            "type": "int",
+            "required": true,
+            "valid": {
+                "advance": true
+            },
+            "title": {
+                "en": "nfeatures",
+                "ko": "nfeatures"
+            },
+            "help": {
+                "en": "The maximum number of features to retain.",
+                "ko": "유지할 최대 기능 수."
+            }
+        },
+        {
+            "rule": "initialize_only",
+            "name": "scaleFactor",
+            "default_value": 1.2,
+            "type": "float",
+            "required": true,
+            "valid": {
+                "advance": true
+            },
+            "title": {
+                "en": "scaleFactor",
+                "ko": "scaleFactor"
+            },
+            "help": {
+                "en": "Pyramid decimation ratio, greater than 1.",
+                "ko": "1보다 큰 피라미드 데시메이션 비율."
+            }
+        },
+        {
+            "rule": "initialize_only",
+            "name": "nlevels",
+            "default_value": 8,
+            "type": "int",
+            "required": true,
+            "valid": {
+                "advance": true
+            },
+            "title": {
+                "en": "nlevels",
+                "ko": "nlevels"
+            },
+            "help": {
+                "en": "The number of pyramid levels.",
+                "ko": "피라미드 레벨 값."
+            }
+        },
+        {
+            "rule": "initialize_only",
+            "name": "edgeThreshold",
+            "default_value": 31,
+            "type": "int",
+            "required": true,
+            "valid": {
+                "advance": true
+            },
+            "title": {
+                "en": "edgeThreshold",
+                "ko": "edgeThreshold"
+            },
+            "help": {
+                "en": "This is size of the border where the features are not detected.",
+                "ko": "기능이 감지되지 않는 경계의 크기."
+            }
+        },
+        {
+            "rule": "initialize_only",
+            "name": "firstLevel",
+            "default_value": 0,
+            "type": "int",
+            "required": true,
+            "valid": {
+                "advance": true
+            },
+            "title": {
+                "en": "firstLevel",
+                "ko": "firstLevel"
+            },
+            "help": {
+                "en": "The level of pyramid to put source image to.",
+                "ko": "소스 이미지를 넣을 피라미드의 레벨."
+            }
+        },
+        {
+            "rule": "initialize_only",
+            "name": "WTA_K",
+            "default_value": 2,
+            "type": "int",
+            "required": true,
+            "valid": {
+                "advance": true
+            },
+            "title": {
+                "en": "WTA_K",
+                "ko": "WTA_K"
+            },
+            "help": {
+                "en": "The number of points that produce each element of the oriented BRIEF descriptor.",
+                "ko": "Oriented BRIEF 디스크립터의 각 요소를 생성하는 포인트 수."
+            }
+        },
+        {
+            "rule": "initialize_only",
+            "name": "scoreType",
+            "default_value": "HARRIS",
+            "type": "str",
+            "required": true,
+            "valid": {
+                "advance": true,
+                "list": "HARRIS;FAST"
+            },
+            "title": {
+                "en": "scoreType",
+                "ko": "scoreType"
+            },
+            "help": {
+                "en": "The type of scoring features.",
+                "ko": "순위를 매기는 방법."
+            }
+        },
+        {
+            "rule": "initialize_only",
+            "name": "patchSize",
+            "default_value": 31,
+            "type": "int",
+            "required": true,
+            "valid": {
+                "advance": true
+            },
+            "title": {
+                "en": "patchSize",
+                "ko": "patchSize"
+            },
+            "help": {
+                "en": "Size of the patch used by the oriented BRIEF descriptor.",
+                "ko": "Oriented BRIEF 설명자가 사용하는 패치의 크기."
+            }
+        },
+        {
+            "rule": "initialize_only",
+            "name": "fastThreshold",
+            "default_value": 20,
+            "type": "int",
+            "required": true,
+            "valid": {
+                "advance": true
+            },
+            "title": {
+                "en": "fastThreshold",
+                "ko": "fastThreshold"
+            },
+            "help": {
+                "en": "The fast threshold.",
+                "ko": "빠른 임계 값."
+            }
+        }
+    ]
+}
