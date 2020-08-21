@@ -11,7 +11,7 @@ def import_module(name):
     return module
 
 
-cv2_orb = import_module('cv2_orb')
+cv2_orb_detect = import_module('cv2_orb_detect')
 
 
 class TestNumpyLambdas(unittest.TestCase):
