@@ -32,7 +32,7 @@
     "controls": {
         "input": ["img1", "keypoints1", "img2", "keypoints2", "matches1to2"],
         "output": "result"
-    }
+    },
     "props": [
         {
             "rule": "read_and_write",
