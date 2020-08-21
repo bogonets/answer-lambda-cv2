@@ -3,7 +3,7 @@
 import numpy as np
 import cv2
 import sys
-from typing import List
+from typing import List, Any
 
 LOGGING_PREFIX = '[cv2.bf.knnMatch] '
 LOGGING_SUFFIX = '\n'
@@ -79,7 +79,7 @@ def normalize_matches(matches: List[List[cv2.DMatch]], i: int) -> List[cv2.DMatc
     return result
 
 
-def matches_to_list(matches: List[List[cv2.DMatch]], i: int) -> List[List[cv2.DMatch]]:
+def matches_to_list(matches: List[List[cv2.DMatch]], i: int) -> List[List[Any]]:
     return [[x.distance, x.imgIdx, x.queryIdx, x.trainIdx] for x in normalize_matches(matches, i)]
 
 

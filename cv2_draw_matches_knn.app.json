@@ -1,0 +1,56 @@
+{
+    "info": {
+        "name": "cv2_draw_matches_knn",
+        "version": "1.0.0",
+        "category": "cv2",
+        "keywords": ["cv2", "drawMatchesKnn"],
+        "homepage": "https://answer.bogonets.com/",
+        "bugs": "https://answer.bogonets.com/",
+        "license": "Bogonet License",
+        "author": "zer0",
+        "dependencies": [
+            {"type": "pip", "src": "numpy"},
+            {"type": "pip", "src": "opencv-python"}
+        ],
+        "engines": ">=1.0.2",
+        "environment": {
+            "type": "pyenv",
+            "name": "cv2"
+        },
+        "titles": {
+            "en": "cv2.drawMatchesKnn",
+            "ko": "cv2.drawMatchesKnn"
+        },
+        "descriptions": {
+            "en": "Draws the found matches of keypoints from two images.",
+            "ko": "두 이미지에서 찾은 키포인트 일치를 그립니다."
+        },
+        "documentation_mime": "text",
+        "documentations": {},
+        "meta": {}
+    },
+    "controls": {
+        "input": ["img1", "keypoints1", "img2", "keypoints2", "matches1to2"],
+        "output": "result"
+    }
+    "props": [
+        {
+            "rule": "read_and_write",
+            "name": "flag",
+            "default_value": "DEFAULT",
+            "type": "str",
+            "required": true,
+            "valid": {
+                "list": "DEFAULT;DRAW_OVER_OUTIMG;NOT_DRAW_SINGLE_POINTS;DRAW_RICH_KEYPOINTS"
+            },
+            "title": {
+                "en": "flag",
+                "ko": "flag"
+            },
+            "help": {
+                "en": "Flags setting drawing features.",
+                "ko": "그리기 기능을 설정하는 플래그입니다."
+            }
+        }
+    ]
+}
