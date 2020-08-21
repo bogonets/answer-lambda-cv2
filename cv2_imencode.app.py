@@ -28,7 +28,7 @@ def on_run(image: np.ndarray):
 
     sys.stdout.write(f"[imencode] result : {ret}")
     sys.stdout.flush()
-    
+
     return {'encoded': buf}
 
 

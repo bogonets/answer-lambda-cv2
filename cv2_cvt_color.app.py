@@ -38,7 +38,7 @@ def on_set(key, val):
 
 def on_get(key):
     if key == 'flag':
-        return COLOR_NAME_TO_FLAG[flag]
+        return COLOR_FLAG_TO_NAME[flag]
 
 
 def on_create():
