@@ -29,22 +29,23 @@ def on_get(key):
 def array_to_keypoints(array: np.ndarray) -> List[cv2.KeyPoint]:
     result = []
     for x in array:
-        result.append(cv2.KeyPoint(angle=x[0],
-                                   class_id=x[1],
-                                   octave=x[2],
-                                   pt=(x[3], x[4],),
-                                   response=x[5],
-                                   size=x[6]))
+        result.append(cv2.KeyPoint(_angle=x[0],
+                                   _class_id=int(x[1]),
+                                   _octave=int(x[2]),
+                                   x=x[3],
+                                   y=x[4],
+                                   _response=x[5],
+                                   _size=x[6]))
     return result
 
 
-def array_to_matches(array: np.ndarray) -> List[cv2.DMatch]:
+def array_to_matches(array: np.ndarray) -> List[List[cv2.DMatch]]:
     result = []
     for x in array:
-        result.append(cv2.DMatch(distance=x[0],
-                                 imgIdx=x[1],
-                                 queryIdx=x[2],
-                                 trainIdx=x[3]))
+        result.append([cv2.DMatch(_distance=x[0],
+                                  _imgIdx=int(x[1]),
+                                  _queryIdx=int(x[2]),
+                                  _trainIdx=int(x[3]))])
     return result
 
 
