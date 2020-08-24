@@ -72,6 +72,9 @@ def on_run(source, text):
     assert source.shape[2] >= 1
     result = source.copy()
 
+    if not text.shape:
+        return {'result': source}
+
     text_str = "".join([chr(item) for item in text])
 
     result = cv2.putText(result,
