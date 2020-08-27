@@ -24,7 +24,7 @@ bf: cv2.BFMatcher = None
 
 k = 2
 mask = None
-compactResult = None
+compact_result = False
 verbose = False
 
 
@@ -84,7 +84,11 @@ def matches_to_list(matches: List[List[cv2.DMatch]], i: int) -> List[List[Any]]:
 
 
 def on_run(query, train):
-    matches = bf.knnMatch(query, train, k=k, mask=mask, compactResult=compactResult)
+    matches = bf.knnMatch(queryDescriptors=query,
+                          trainDescriptors=train,
+                          k=k,
+                          mask=mask,
+                          compactResult=compact_result)
 
     if len(list(filter(lambda x: len(x) != k, matches))) == 0:
         print_error(f'Found an element that is not of length k({k}).')

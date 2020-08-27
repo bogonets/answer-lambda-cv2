@@ -28,7 +28,7 @@ orb: cv2.Feature2D = None
 
 mask = None
 descriptors = None
-use_provided_keypoints = None
+use_provided_keypoints = False
 
 verbose = False
 
@@ -113,7 +113,10 @@ def on_valid():
 
 
 def on_run(image):
-    kp, desc = orb.detectAndCompute(image, mask, descriptors, use_provided_keypoints)
+    kp, desc = orb.detectAndCompute(image=image,
+                                    mask=mask,
+                                    descriptors=descriptors,
+                                    useProvidedKeypoints=use_provided_keypoints)
     kp_list = [[x.angle, x.class_id, x.octave, x.pt[0], x.pt[1], x.response, x.size] for x in kp]
 
     if verbose:
