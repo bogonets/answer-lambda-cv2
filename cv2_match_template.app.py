@@ -33,18 +33,6 @@ def on_get(key):
         return METHOD_NUM_TO_NAME[method]
 
 
-def on_create():
-    return True
-
-
-def on_init():
-    return True
-
-
-def on_valid():
-    return True
-
-
 def on_run(image: np.ndarray, template: np.ndarray):
     assert len(image.shape) == 3
     assert image.shape[0] >= 1
@@ -58,13 +46,9 @@ def on_run(image: np.ndarray, template: np.ndarray):
 
     result = cv2.matchTemplate(image, template, method)
 
-    sys.stdout.write(f"[matchTemplate] result : {result}")
-    
+    # sys.stdout.write(f"[matchTemplate] result : {result}")
+
     return {'result': result}
-
-
-def on_destroy():
-    return True
 
 
 if __name__ == '__main__':

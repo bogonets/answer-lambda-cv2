@@ -41,24 +41,8 @@ def on_get(key):
         return COLOR_FLAG_TO_NAME[flag]
 
 
-def on_create():
-    return True
-
-
-def on_init():
-    return True
-
-
-def on_valid():
-    return True
-
-
 def on_run(array):
     return {'result': cv2.cvtColor(array, flag)}
-
-
-def on_destroy():
-    return True
 
 
 if __name__ == '__main__':

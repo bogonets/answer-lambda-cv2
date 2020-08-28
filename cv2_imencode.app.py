@@ -32,9 +32,5 @@ def on_run(image: np.ndarray):
     return {'encoded': buf}
 
 
-def on_destroy():
-    return True
-
-
 if __name__ == '__main__':
     pass
