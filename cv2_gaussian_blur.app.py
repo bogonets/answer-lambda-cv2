@@ -28,7 +28,9 @@ def on_get(key):
 
 
 def on_run(source: np.ndarray):
-    result = cv2.gaussianBlur(source, (ksize, ksize), sigmaX)
+    if not source.shape:
+        return {'result': None}
+    result = cv2.GaussianBlur(source, (ksize, ksize), sigmaX)
     return {'result': result}
 
 

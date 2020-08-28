@@ -65,7 +65,9 @@ def on_get(key):
 
 
 def on_run(source: np.ndarray):
-    result = cv2.adaptiveThreshold(source, max_value, adaptive_thresh, thres, block_size, c)
+    if not source.shape:
+        return {'result': None}
+    result = cv2.adaptiveThreshold(source, max_value, adaptive_thresh, thresh, block_size, c)
     return {'result': result}
 
 
