@@ -66,14 +66,17 @@ def rgb_to_hex(r, g, b):
 
 
 def on_run(source, text):
-    assert len(source.shape) == 3
-    assert source.shape[0] >= 1
-    assert source.shape[1] >= 1
-    assert source.shape[2] >= 1
-    result = source.copy()
 
     if not text.shape:
         return {'result': source}
+    if not source.shape:
+        return {'result': None}
+
+    # assert len(source.shape) == 3
+    # assert source.shape[0] >= 1
+    # assert source.shape[1] >= 1
+    # assert source.shape[2] >= 1
+    result = source.copy()
 
     text_str = "".join([chr(item) for item in text])
 

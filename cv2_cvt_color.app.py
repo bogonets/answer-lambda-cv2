@@ -42,6 +42,8 @@ def on_get(key):
 
 
 def on_run(array):
+    if not array.shape:
+        return {'result': None}
     return {'result': cv2.cvtColor(array, flag)}
 
 

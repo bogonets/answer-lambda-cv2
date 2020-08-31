@@ -22,6 +22,8 @@ def on_get(key):
 
 
 def on_run(source: np.ndarray):
+    if not source.shape:
+        return{'result': None}
     result = cv2.erode(source, (kernel, kernel))
     return {'result': result}
 
