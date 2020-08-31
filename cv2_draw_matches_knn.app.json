@@ -1,7 +1,7 @@
 {
     "info": {
         "name": "cv2_draw_matches_knn",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "category": "cv2",
         "keywords": ["cv2", "drawMatchesKnn"],
         "homepage": "https://answer.bogonets.com/",
