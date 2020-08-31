@@ -1,7 +1,7 @@
 {
     "info": {
         "name": "cv2_bf_knn_match",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "category": "cv2",
         "keywords": ["cv2", "knn", "match"],
         "homepage": "https://answer.bogonets.com/",

@@ -75,7 +75,7 @@ def normalize_matches(matches: List[List[cv2.DMatch]], i: int) -> List[cv2.DMatc
         if i < len(x):
             result.append(x[i])
         else:
-            result.append(cv2.DMatch(distance=0.0, imgIdx=0, queryIdx=0, trainIdx=0))
+            result.append(cv2.DMatch(_distance=0.0, _imgIdx=0, _queryIdx=0, _trainIdx=0))
     return result
 
 
